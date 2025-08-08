@@ -287,13 +287,20 @@ client.on(Events.MessageCreate, async message => {
     if (message.guild?.id !== "1216816878937313442") return;
     if (message.channel.id !== "1216817245259432057") return;
     if ((message.createdTimestamp - [...(await message.channel.messages.fetch({limit: 2})).values()][1].createdTimestamp) <  30 * 60 * 1000) return;
-    const role = await message.guild?.roles.fetch("1402448085443022929");
+    const role = await message.guild?.roles.fetch("1403508247670947941");
     console.log(role);
     if (!role) return;
     for (const member of [...role.members.values()]) {
-        if (member.id !== message.author.id) await member.roles.remove("1402448085443022929")
+        if (member.id !== message.author.id) await member.roles.remove("1403508247670947941")
     }
-    await message.member?.roles.add("1402448085443022929");
+    await message.member?.roles.add("1403508247670947941");
+})
+
+client.on(Events.MessageCreate, async message => {
+    if (message.content !== "!test") return;
+    console.log(message.member?.toJSON())
+    console.log(message.author.toJSON())
+    console.log(message.author.toJSON().clan)
 })
 
 const createStyleChoice = (name: string, id: string) => styleText(name, id, false, false) + " - " + name
