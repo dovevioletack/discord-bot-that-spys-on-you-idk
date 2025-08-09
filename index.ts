@@ -282,7 +282,7 @@ client.on(Events.InteractionCreate, async interaction => {
 
 They have a difference of ${levelsDifference} levels.` : "No gaps found.")
 })
-
+/*
 client.on(Events.MessageCreate, async message => {
     if (message.guild?.id !== "1216816878937313442") return;
     if (message.channel.id !== "1216817245259432057") return;
@@ -295,7 +295,7 @@ client.on(Events.MessageCreate, async message => {
     }
     await message.member?.roles.add("1403508247670947941");
 })
-
+*/
 client.on(Events.MessageCreate, async message => {
     if (message.content !== "!test") return;
     console.log(message.member?.toJSON())
